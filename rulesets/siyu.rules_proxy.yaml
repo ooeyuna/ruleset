@@ -1,4 +1,36 @@
 payload:
+  - DOMAIN-SUFFIX,discord.com
+  - DOMAIN-SUFFIX,discord.net
+  - DOMAIN-SUFFIX,discordapp.com
+  - DOMAIN-SUFFIX,discordapp.net
+  - DOMAIN-SUFFIX,pornhub.com
+  - DOMAIN-SUFFIX,quora.com
+  - DOMAIN-SUFFIX,quoracdn.net
+  - DOMAIN-SUFFIX,chatgpt.com
+  - DOMAIN-SUFFIX,steamcommunity.com
+  - DOMAIN-SUFFIX,telegra.ph
+  - DOMAIN-SUFFIX,v2ex.com
+  - DOMAIN-SUFFIX,wikimapia.org
+  - DOMAIN-SUFFIX,wikimedia.org
+  - DOMAIN-SUFFIX,wikipedia.org
+  - DOMAIN-SUFFIX,xvideos-cdn.com
+  - DOMAIN-SUFFIX,exhentai.org
+  - DOMAIN-SUFFIX,ehentai.org
+  - DOMAIN-SUFFIX,xvideos.com
+  - DOMAIN-SUFFIX,github.com
+  - DOMAIN-SUFFIX,github.io
+  - DOMAIN-SUFFIX,githubapp.com
+  - DOMAIN-SUFFIX,githubassets.com
+  - DOMAIN-SUFFIX,githubusercontent.com
+  - DOMAIN-SUFFIX,cloudfront.net
+  - DOMAIN-SUFFIX,amazon.com
+  - DOMAIN-SUFFIX,amazonaws.com
+  - DOMAIN-SUFFIX,t.me
+  - DOMAIN-SUFFIX,telegram.me
+  - DOMAIN-SUFFIX,wikia.com
+  - DOMAIN-SUFFIX,onedrive.live.com
+
+  - DOMAIN-SUFFIX,agentneo.co
   - DOMAIN-SUFFIX,microsoftonline.com
   - DOMAIN-SUFFIX,live.net
   - DOMAIN-SUFFIX,spring.io
@@ -47,7 +79,6 @@ payload:
   - DOMAIN-SUFFIX,txxx.com
   - DOMAIN-SUFFIX,dropbox.com
   - DOMAIN-SUFFIX,googleusercontent.com
-  - DOMAIN-SUFFIX,nicovideo.jp
   - DOMAIN-SUFFIX,thepiratebay.org
   - DOMAIN-SUFFIX,pixnet.net
   - DOMAIN-SUFFIX,bbc.co.uk
