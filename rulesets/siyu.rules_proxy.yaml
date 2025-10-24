@@ -2,15 +2,12 @@ payload:
   - DOMAIN-SUFFIX,microsoftonline.com
   - DOMAIN-SUFFIX,live.net
   - DOMAIN-SUFFIX,spring.io
-  - DOMAIN-SUFFIX,nintendo.jp
-  - DOMAIN-SUFFIX,nintendo.com
   - DOMAIN-SUFFIX,cmx.im
   - DOMAIN-SUFFIX,avgle.com
   - DOMAIN-SUFFIX,budgetbakers.com
   - DOMAIN-SUFFIX,exhentai.org
   - DOMAIN-SUFFIX,shinycolors.enza.fun
   - DOMAIN-SUFFIX,enza.fun
-  - DOMAIN-SUFFIX,fate-go.jp
   - DOMAIN-SUFFIX,google.com
   - DOMAIN-SUFFIX,youtube.com
   - DOMAIN-SUFFIX,facebook.com
@@ -38,7 +35,6 @@ payload:
   - DOMAIN-SUFFIX,xvideos.com
   - DOMAIN-SUFFIX,mail.ru
   - DOMAIN-SUFFIX,ok.ru
-  - DOMAIN-SUFFIX,hao123.com
   - DOMAIN-SUFFIX,stackoverflow.com
   - DOMAIN-SUFFIX,imdb.com
   - DOMAIN-SUFFIX,github.com
@@ -419,6 +415,35 @@ payload:
   - DOMAIN-SUFFIX,wikimapia.org
   - DOMAIN-SUFFIX,torrentz.eu
   - DOMAIN-SUFFIX,javhub.net
+  - DOMAIN-SUFFIX,telegram.org
+  - DOMAIN-SUFFIX,telegram.me
 
-  # - DOMAIN-SUFFIX,telegram.org
-  # - DOMAIN-SUFFIX,telegram.me
+  - DOMAIN-KEYWORD,gitlab.com
+
+  - DOMAIN-KEYWORD,opensuse.org
+
+  - DOMAIN-KEYWORD,ryuugames.com
+  - DOMAIN-KEYWORD,zxcvfdsa.com
+  - DOMAIN-KEYWORD,civitai.com
+  - DOMAIN-KEYWORD,hanime1.me
+  - DOMAIN-KEYWORD,blizzard.com
+  - DOMAIN-KEYWORD,battle.net
+  - DOMAIN-KEYWORD,novel18.syosetu.com
+  - DOMAIN-KEYWORD,archive.archlinux.org
+  - DOMAIN-KEYWORD,braze.com
+  - DOMAIN-KEYWORD,paradox-interactive.com
+  - DOMAIN-KEYWORD,braze-images.com
+
+  - DOMAIN-KEYWORD,aws.amazon.com
+  - DOMAIN-KEYWORD,amazonaws.com
+  - DOMAIN-KEYWORD,api.aws
+  - DOMAIN-KEYWORD,ubi.com
+
+  - DOMAIN-KEYWORD,hath.network
+  - DOMAIN-KEYWORD,docker.com
+  - DOMAIN-KEYWORD,paypal.com
+  - DOMAIN-KEYWORD,paypalobjects.com
+  - DOMAIN-KEYWORD,appcenter.ms
+  - DOMAIN-KEYWORD,azureedge.net
+  - DOMAIN-KEYWORD,obsproject
+  - DOMAIN-KEYWORD,microsoft
