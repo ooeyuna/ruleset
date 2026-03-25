@@ -1,4 +1,7 @@
 payload:
+- DOMAIN-SUFFIX,adobe.io
+- DOMAIN-SUFFIX,adobe.com
+- DOMAIN-KEYWORD,adobestats
 - DOMAIN-SUFFIX,17gouwuba.com
 - DOMAIN-SUFFIX,189zj.cn
 - DOMAIN-SUFFIX,285680.com
