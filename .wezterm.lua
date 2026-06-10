@@ -16,13 +16,23 @@ config.ssh_domains = {
 }
 
 -- theme
+-- Download From https://www.nerdfonts.com/
 config.font = wezterm.font_with_fallback({
-  'Cascadia Mono',
-  'Sarasa Mono SC', -- 中文 fallback；不需要中文可删
+  'JetBrainsMono Nerd Font',
+  'CaskaydiaCove Nerd Font', -- 中文 fallback；不需要中文可删
 }, { weight = 'Medium' })
+
 config.font_size = 13.0
-config.cell_width = 0.9
-config.line_height = 1.0
+
+
+-- 3. 主题与界面美化 (可选)
+config.color_scheme = "Catppuccin Mocha"  -- 设置颜色主题
+
+config.front_end = "WebGpu"              -- 使用WebGPU后端
+
+if wezterm.target_triple:find("windows") then
+    config.window_background_opacity = 0.92
+end
 
 -- 更偏向 LCD 子像素渲染，通常比默认更锐
 config.freetype_load_target = 'HorizontalLcd'
