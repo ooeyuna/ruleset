@@ -18,12 +18,15 @@ config.ssh_domains = {
 -- theme
 config.font = wezterm.font_with_fallback({
   'Cascadia Mono',
-  'DengXian', -- 中文 fallback；不需要中文可删
-})
-config.font_size = 12.0
+  'Sarasa Mono SC', -- 中文 fallback；不需要中文可删
+}, { weight = 'Medium' })
+config.font_size = 13.0
+config.cell_width = 0.9
+config.line_height = 1.0
 
--- WT 默认是竖条光标；WezTerm 默认是方块
-config.default_cursor_style = 'SteadyBar'
+-- 更偏向 LCD 子像素渲染，通常比默认更锐
+config.freetype_load_target = 'HorizontalLcd'
+config.freetype_render_target = 'HorizontalLcd'
 
 -- 更接近常见终端对粗体亮色的处理
 config.bold_brightens_ansi_colors = true
@@ -59,6 +62,47 @@ config.color_schemes = {
 }
 config.color_scheme = 'Windows Terminal Campbell'
 
+config.enable_scroll_bar = true
+config.min_scroll_bar_height = '1cell'
+
+config.use_fancy_tab_bar = false
+config.tab_max_width = 20
+config.show_tab_index_in_tab_bar = false -- 我们自己画 index
+config.show_new_tab_button_in_tab_bar = false
+
+local MIN_TAB_WIDTH = 12
+
+local function get_tab_title(tab)
+  if tab.tab_title and #tab.tab_title > 0 then
+    return tab.tab_title
+  end
+  return tab.active_pane.title
+end
+
+wezterm.on('format-tab-title', function(tab, tabs, panes, cfg, hover, max_width)
+  local index = tostring(tab.tab_index + 1)
+  local title = get_tab_title(tab)
+
+  local prefix = index .. ': '
+  local inner_max = math.max(1, max_width - #prefix - 2)
+  title = wezterm.truncate_right(title, inner_max)
+
+  local label = prefix .. title
+  if #label < MIN_TAB_WIDTH then
+    label = label .. string.rep(' ', MIN_TAB_WIDTH - #label)
+  end
+
+  return ' ' .. label .. ' '
+end)
+
+config.colors = {
+  split = "#909090",
+}
+
+config.inactive_pane_hsb = {
+  saturation = 0.80,
+  brightness = 0.40,
+}
 
 --keymap
 local act = wezterm.action
