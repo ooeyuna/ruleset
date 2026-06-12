@@ -16,7 +16,6 @@ config.ssh_domains = {
 }
 
 -- theme
--- Download From https://www.nerdfonts.com/
 config.font = wezterm.font_with_fallback({
   'JetBrainsMono Nerd Font',
   'CaskaydiaCove Nerd Font', -- 中文 fallback；不需要中文可删
@@ -172,8 +171,29 @@ config.mouse_bindings = {
     mouse_reporting = true,
     action = act.PasteFrom 'Clipboard',
   },
-}
+  -- 普通左键释放：只完成选择，不打开链接
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = act.Nop,
+  },
+  -- Ctrl+左键释放：打开鼠标下的链接
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = act.OpenLinkAtMouseCursor,
+  },
 
+  -- 避免 Ctrl+按下事件传给终端里的程序
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = act.Nop,
+  },
+
+}
 -- history lines
 config.scrollback_lines = 20000
 return config
+
+
