@@ -1,6 +1,6 @@
 payload:
   # test
-  - DOMAIN,ip.sb
+  - DOMAIN-KEYWORD,ip.sb
   # claude
   - DOMAIN-KEYWORD,claude.ai
   - DOMAIN,cdn.usefathom.com
@@ -23,6 +23,7 @@ payload:
   - DOMAIN-KEYWORD,generativelanguage
   - DOMAIN,proactivebackend-pa.googleapis.com
   # OpenAI
+  - DOMAIN-KEYWORD,openai.com
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,auth0.com
   - DOMAIN-SUFFIX,sentry.io
