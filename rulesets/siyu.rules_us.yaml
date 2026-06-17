@@ -1,4 +1,6 @@
 payload:
+  # test
+  - DOMAIN,ip.sb
   # claude
   - DOMAIN-KEYWORD,claude.ai
   - DOMAIN,cdn.usefathom.com
