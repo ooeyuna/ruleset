@@ -67,24 +67,24 @@ payload:
   - IP-CIDR,64.23.132.171/32
   - IP-ASN,20473
   # cursor
-  - DOMAIN,api2.cursor.sh,ai
-  - DOMAIN-SUFFIX,api2.cursor.sh,ai
-  - DOMAIN,api3.cursor.sh,ai
-  - DOMAIN-SUFFIX,api3.cursor.sh,ai
-  - DOMAIN,api4.cursor.sh,ai
-  - DOMAIN-SUFFIX,api4.cursor.sh,ai
-  - DOMAIN,repo42.cursor.sh,ai
-  - DOMAIN-SUFFIX,repo42.cursor.sh,ai
-  - DOMAIN,us-asia.gcpp.cursor.sh,ai
-  - DOMAIN-SUFFIX,us-asia.gcpp.cursor.sh,ai
-  - DOMAIN,us-eu.gcpp.cursor.sh,ai
-  - DOMAIN-SUFFIX,us-eu.gcpp.cursor.sh,ai
-  - DOMAIN,us-only.gcpp.cursor.sh,ai
-  - DOMAIN-SUFFIX,us-only.gcpp.cursor.sh,ai
-  - DOMAIN,marketplace.cursorapi.com,ai
-  - DOMAIN-SUFFIX,marketplace.cursorapi.com,ai
-  - DOMAIN-SUFFIX,cursor-cdn.com,ai
-  - DOMAIN,download.todesktop.com,ai
-  - DOMAIN-SUFFIX,download.todesktop.com,ai
-  - DOMAIN-SUFFIX,cursor.sh,ai
-  - DOMAIN-SUFFIX,cursor.blob.core.windows.net,ai
+  - DOMAIN,api2.cursor.sh
+  - DOMAIN-SUFFIX,api2.cursor.sh
+  - DOMAIN,api3.cursor.sh
+  - DOMAIN-SUFFIX,api3.cursor.sh
+  - DOMAIN,api4.cursor.sh
+  - DOMAIN-SUFFIX,api4.cursor.sh
+  - DOMAIN,repo42.cursor.sh
+  - DOMAIN-SUFFIX,repo42.cursor.sh
+  - DOMAIN,us-asia.gcpp.cursor.sh
+  - DOMAIN-SUFFIX,us-asia.gcpp.cursor.sh
+  - DOMAIN,us-eu.gcpp.cursor.sh
+  - DOMAIN-SUFFIX,us-eu.gcpp.cursor.sh
+  - DOMAIN,us-only.gcpp.cursor.sh
+  - DOMAIN-SUFFIX,us-only.gcpp.cursor.sh
+  - DOMAIN,marketplace.cursorapi.com
+  - DOMAIN-SUFFIX,marketplace.cursorapi.com
+  - DOMAIN-SUFFIX,cursor-cdn.com
+  - DOMAIN,download.todesktop.com
+  - DOMAIN-SUFFIX,download.todesktop.com
+  - DOMAIN-SUFFIX,cursor.sh
+  - DOMAIN-SUFFIX,cursor.blob.core.windows.net
