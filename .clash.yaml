@@ -1,0 +1,270 @@
+port: 1081
+socks-port: 1080
+mixed-port: 1082
+allow-lan: false
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+
+
+hosts:
+  # "nginx.baiban.shengwang.cn": "47.111.90.19"
+  # "api.netless.link": "47.89.29.45"
+  # '*.clash.dev': 127.0.0.1
+  # '.dev': 127.0.0.1
+  # 'alpha.clash.dev': '::1'
+
+profile:
+  store-selected: false
+
+dns:
+  enable: false
+  ipv6: false
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+proxy-groups:
+  # url-test select which proxy will be used by benchmarking speed to a URL.
+  - name: "auto"
+    type: url-test
+    use:
+    - neo_proxy
+    - jms
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+
+  # select is used for selecting proxy or proxy group
+  # you can use RESTful API to switch proxy is recommended for use in GUI.
+  - name: Proxy
+    type: url-test
+    use:
+    - neo_proxy
+    - jms
+    url: 'http://www.gstatic.com/generate_204'
+    # disable-udp: true
+    interval: 300
+  - name: us
+    type: url-test
+    use:
+    - neo_proxy_for_us
+    url: 'http://www.gstatic.com/generate_204'
+    # disable-udp: true
+    interval: 300
+  - name: jp
+    type: url-test
+    use:
+    - neo_proxy_jp
+    url: 'http://www.gstatic.com/generate_204'
+    # disable-udp: true
+    interval: 300
+  - name: jms
+    type: url-test
+    use:
+    - jms
+    url: 'http://www.gstatic.com/generate_204'
+    # disable-udp: true
+    interval: 300
+  
+
+proxy-providers:
+  jms:
+    type: http
+    url: "https://api.wcc.best/sub?target=clash&url=https%3A%2F%2Fjmssub.net%2Fmembers%2Fgetsub.php%3Fservice%3D54704%26id%3Dc9709500-538d-45e4-8e54-cc7792ad8773&insert=false&emoji=true&list=false&tfo=false&scv=true&fdn=false&expand=true&sort=false&new_name=true"
+    interval: 3600
+    path: ./provider_jms.yaml
+    health-check:
+      enable: true
+      interval: 600
+      # lazy: true
+      url: http://www.gstatic.com/generate_204
+  neo_proxy:
+    type: http
+    # url: "https://feed-dl.net/files/nRYEjh7sF6/clash_proxies.yml"
+    url: "https://www.neofeed.org/files/kr5k1X6JXH/clash_proxies.yml"
+    interval: 3600
+    path: ./provider_neoproxy.yaml
+    health-check:
+      enable: true
+      interval: 600
+      # lazy: true
+      url: http://www.gstatic.com/generate_204
+  neo_proxy_jp:
+    type: http
+    # url: "https://feed-dl.net/files/nRYEjh7sF6/clash_proxies.yml"
+    url: "https://www.neofeed.org/files/kr5k1X6JXH/clash_proxies.yml"
+    interval: 3600
+    path: ./provider_neoproxy_for_jp.yaml
+    filter: "jp"
+    exclude-filter: "中转"
+    health-check:
+      enable: true
+      interval: 600
+      # lazy: true
+      url: http://www.gstatic.com/generate_204
+  neo_proxy_for_us:
+    type: http
+    # url: "https://feed-dl.net/files/nRYEjh7sF6/clash_proxies.yml"
+    url: "https://www.neofeed.org/files/kr5k1X6JXH/clash_proxies.yml"
+    interval: 3600
+    path: ./provider_neoproxy_for_us.yaml
+    filter: "美西|us|美国|美东"
+    exclude-filter: "中转"
+    health-check:
+      enable: true
+      interval: 600
+      # lazy: true
+      url: http://www.gstatic.com/generate_204
+rule-providers:
+  siyu_direct:
+    type: http
+    path: ./ruleset/siyu.rules_direct.yaml
+    url: "https://raw.githubusercontent.com/ooeyuna/ruleset/refs/heads/master/rulesets/siyu.rules_direct.yaml"
+    interval: 86400
+    behavior: classical
+
+  siyu_jp:
+    type: http
+    path: ./ruleset/siyu.rules_jp.yaml
+    url: "https://raw.githubusercontent.com/ooeyuna/ruleset/refs/heads/master/rulesets/siyu.rules_jp.yaml"
+    interval: 86400
+    behavior: classical
+
+  siyu_proxy:
+    type: http
+    path: ./ruleset/siyu.rules_proxy.yaml
+    url: "https://raw.githubusercontent.com/ooeyuna/ruleset/refs/heads/master/rulesets/siyu.rules_proxy.yaml"
+    interval: 86400
+    behavior: classical
+
+  siyu_reject:
+    type: http
+    path: ./ruleset/siyu.rules_reject.yaml
+    url: "https://raw.githubusercontent.com/ooeyuna/ruleset/refs/heads/master/rulesets/siyu.rules_reject.yaml"
+    interval: 86400
+    behavior: classical
+
+  siyu_us:
+    type: http
+    path: ./ruleset/siyu.rules_us.yaml
+    url: "https://raw.githubusercontent.com/ooeyuna/ruleset/refs/heads/master/rulesets/siyu.rules_us.yaml"
+    interval: 86400
+    behavior: classical
+
+
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  greatfire:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
+    path: ./ruleset/greatfire.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+rules:
+  
+  - RULE-SET,siyu_direct,DIRECT
+  - RULE-SET,siyu_reject,REJECT
+  - RULE-SET,siyu_proxy,Proxy
+
+  - RULE-SET,siyu_jp,jp
+  - RULE-SET,siyu_us,us
+  
+  - RULE-SET,private,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,google,jms
+  - RULE-SET,proxy,Proxy
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,telegramcidr,Proxy
+  #
+  # optional param "no-resolve" for IP rules (GEOIP, IP-CIDR, IP-CIDR6)
+  - GEOIP,CN,DIRECT
+  - IP-CIDR,8.153.110.209/32,DIRECT
+    #- DST-PORT,80,DIRECT
+    #- SRC-PORT,7777,DIRECT
+    #  - RULE-SET,apple,REJECT # Premium only
+  - MATCH,auto
