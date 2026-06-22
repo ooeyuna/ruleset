@@ -111,7 +111,7 @@ proxy-providers:
     url: "https://www.neofeed.org/files/kr5k1X6JXH/clash_proxies.yml"
     interval: 3600
     path: ./provider_neoproxy_for_jp.yaml
-    filter: "jp"
+    filter: "jp|日本"
     exclude-filter: "中转"
     health-check:
       enable: true
