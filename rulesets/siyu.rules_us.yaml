@@ -1,4 +1,6 @@
 payload:
+  # kiro
+  - DOMAIN-KEYWORD,kiro.dev
   # claude
   - DOMAIN-KEYWORD,claude.ai
   - DOMAIN,cdn.usefathom.com
