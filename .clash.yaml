@@ -249,10 +249,9 @@ rules:
   
   - RULE-SET,siyu_direct,DIRECT
   - RULE-SET,siyu_reject,REJECT
-  - RULE-SET,siyu_proxy,Proxy
-
   - RULE-SET,siyu_jp,jp
   - RULE-SET,siyu_us,jp
+
   
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,REJECT
@@ -260,7 +259,8 @@ rules:
   - RULE-SET,proxy,Proxy
   - RULE-SET,direct,DIRECT
   - RULE-SET,telegramcidr,Proxy
-  #
+  - RULE-SET,siyu_proxy,Proxy
+  
   # optional param "no-resolve" for IP rules (GEOIP, IP-CIDR, IP-CIDR6)
   - GEOIP,CN,DIRECT
   - IP-CIDR,8.153.110.209/32,DIRECT
