@@ -252,7 +252,7 @@ rules:
   - RULE-SET,siyu_proxy,Proxy
 
   - RULE-SET,siyu_jp,jp
-  - RULE-SET,siyu_us,us
+  - RULE-SET,siyu_us,jp
   
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,REJECT
